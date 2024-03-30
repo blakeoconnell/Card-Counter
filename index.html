@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<!-- Primary Meta Tags -->
+	<title>Card Counter</title>
+	<meta name="title" content="Card Counter">
+	<meta name="description" content="It counts cards. What else can I say?">
+
+	<!-- Open Graph / Facebook -->
+	<!-- <meta property="og:type" content="website">
+	<meta property="og:url" content="https://blakeoconnell.github.io/wow-class-picker/">
+	<meta property="og:title" content="WoW Class Picker">
+	<meta property="og:description" content="Can't decide on a class? Use this tool to pick a class for you!">
+	<meta property="og:image"
+		content="/assets/images/wowpicker.png"> -->
+
+	<!-- Twitter -->
+	<!-- <meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://blakeoconnell.github.io/wow-class-picker/">
+	<meta property="twitter:title" content="WoW Class Picker">
+	<meta property="twitter:description" content="Can't decide on a class? Use this tool to pick a class for you!">
+	<meta property="twitter:image"
+		content="/assets/images/wowpicker.png"> -->
+
+	<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/cardCounter.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<!-- <h1>World of Warcraft Class Picker</h1>
+	<div class="container-fluid text-center col-sm-12">
+		<h5>Use the tool below to generate a random class. You can also click on the class icons themselves to
+			include/exclude them from the algorithm.</h5>
+	</div> -->
+	<div class="iconList row">
+		<div class="cardTypeCol col-4">
+			<div id="sr" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="sr-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">SR</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="sr-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+		<div class="cardTypeCol col-4">
+			<div id="sec" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="sec-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">SEC</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="sec-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+        <div class="cardTypeCol col-4">
+			<div id="aa" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="aa-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">AA</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="aa-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+        <div class="cardTypeCol col-4">
+			<div id="lead" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="lead-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">L</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="lead-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+        <div class="cardTypeCol col-4">
+			<div id="sp" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="sp-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">SP</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="sp-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+        <div class="cardTypeCol col-4">
+			<div id="manga" class="cardTypeBox">
+                    <div class="block decrementBlock" style="grid-row: 1/3;"><button data-action="manga-dec" class="action-btn">-</button></div>
+				    <div class="block"><h3 class="cardTypeText">M</h3></div>
+                    <div class="block"><h3 class="cardValueText">0</h3></div>
+                    <div class="block incrementBlock" style="grid-row: 1/3;"><button data-action="manga-inc" class="action-btn">+</button></div>
+			</div>
+		</div>
+	</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="defaults">
+        <div class="block">
+            <button class="btn btn-outline-primary" data-action="eng-defaults">ENG</button>
+            <button class="btn btn-outline-info" data-action="jpn-defaults">JPN</button>
+            <button class="btn btn-danger" data-action="clear">Clear</button>
+        </div>
+        <div class="customInputs"><br>
+            <div class="inputRow">
+                <label for="srCount">SR:</label>
+                <input class="form-control" type="text" id="srCount" name="srCount" size="4">
+                <button class="btn btn-secondary" data-action="updateSR">Set</button><br>
+            </div>
+            <div class="inputRow">
+                <label for="secCount">SEC:</label>
+                <input class="form-control" type="text" id="secCount" name="secCount" size="4">
+                <button class="btn btn-secondary" data-action="updateSEC">Set</button><br>
+            </div>
+            <div class="inputRow">
+                <label for="aaCount">AA:</label>
+                <input class="form-control" type="text" id="aaCount" name="aaCount" size="4">
+                <button class="btn btn-secondary" data-action="updateAA">Set</button><br>
+            </div>
+            <div class="inputRow">
+                <label for="leadCount">L:</label>
+                <input class="form-control" type="text" id="leadCount" name="leadCount" size="4">
+                <button class="btn btn-secondary" data-action="updateL">Set</button><br>
+            </div>
+            <div class="inputRow">
+                <label for="spCount">SP:</label>
+                <input class="form-control" type="text" id="spCount" name="spCount" size="4">
+                <button class="btn btn-secondary" data-action="updateSP">Set</button><br>
+            </div>
+            <div class="inputRow">
+                <label for="mangaCount">M:</label>
+                <input class="form-control" type="text" id="mangaCount" name="mangaCount" size="4">
+                <button class="btn btn-secondary" data-action="updateM">Set</button><br>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript" src="assets/js/cardCounter.js"></script>
+</body>
+
+</html>

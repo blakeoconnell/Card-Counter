@@ -1,41 +1,26 @@
+@font-face {
+    font-family: onePiece;
+    src: url('../fonts/one\ piece\ font.ttf');
+}
+
 body {
 	background: #231a13;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #221713, #231a13);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #221713, #231a13); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
-	font-family: 'Krona One', sans-serif;
+	font-family: 'onePiece', sans-serif;
 	margin: 20px;
 }
 
-h1 {
-	text-align: center;
-	text-shadow: 2px 2px black;
-}
-
-h2 {
-	text-align: center;
-	text-shadow: 2px 2px black;
-	opacity: 0;
-}
-
-h5 {
-	text-align: center;
-}
-
-#github {
-	text-align: right;
-	padding: 20px;
-}
-
-#github h4 {
-	font-size: 1.2em;
+.btn {
+    font-size: 1.5rem;
 }
 
 .cardTypeText, .cardValueText {
 	text-transform: uppercase;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 4rem;
 }
 
 .cardTypeBox {
@@ -64,10 +49,17 @@ h5 {
 
 .inputRow label {
     width: 4rem; /* Adjust width as needed */
+    font-size: 2rem;
+    vertical-align: middle
+}
+
+label {
+    margin-bottom: 0;
 }
 
 .inputRow input {
     width: 4rem; /* Adjust width as needed */
+    font-size: 1.5rem;
 }
 
 .inputRow button {
